@@ -3,8 +3,29 @@
 
   $mySkills = [
     'skillName' => ['Python', 'C#', 'Java', 'Go'],
-    'skillLevel' => [70, 80, 40, 10],
-  ]
+    'skillLevel' => [70, 80, 40, 10]
+  ];
+
+  $myExperience = [
+    'expName' => [
+      'НПО Суперкомпания',
+      'ООО Секретная компания',
+      'ООО Рога и копыта',
+      'ОАО Просто Компания'
+    ],
+    'expDate' => [
+      ['04.2020','сейчас'],
+      ['11.2018','04.2020'],
+      ['09.2016','11.2018'], 
+      ['04.2015','09.2016']
+    ],
+    'expText' => [
+        'Cъешь ещё этих мягких французских булок, да выпей чаю. Cъешь ещё этих мягких французских булок, да выпей чаю.', 
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut diam quis mauris molestie consequat et a augue. ', 
+        'Fusce quam ligula, ultricies in massa pharetra, aliquet venenatis magna. Donec accumsan, turpis consectetur ', 
+        'Morbi semper neque sit amet sem gravida bibendum. Nam vel felis eu enim pharetra venenatis sed vel sem. '
+    ]
+  ];
 ?>
 
 <!DOCTYPE html>
@@ -89,24 +110,43 @@
     
       <div class="w3-container w3-card w3-white w3-margin-bottom">
         <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Опыт работы</h2>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Front End Developer </b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jan 2015 - <span class="w3-tag w3-teal w3-round">Current</span></h6>
-          <p>Lorem ipsum dolor sit amet. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Web Developer / something.com</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Mar 2012 - Dec 2014</h6>
-          <p>Consectetur adipisicing elit. Praesentium magnam consectetur vel in deserunt aspernatur est reprehenderit sunt hic. Nulla tempora soluta ea et odio, unde doloremque repellendus iure, iste.</p>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Graphic Designer / designsomething.com</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jun 2010 - Mar 2012</h6>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p><br>
-        </div>
-      </div>
+
+        <?php 
+          for($i = 0; $i < count($myExperience['expName']); $i++)
+          {
+          ?>
+            <div class="w3-container">
+              <h5 class="w3-opacity"><b> <?php echo $myExperience['expName'][$i]; ?> </b></h5>
+              <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>
+              <?php 
+                echo $myExperience['expDate'][$i][0] . ' - ';
+              ?>
+              <?php
+                if($myExperience['expDate'][$i][1] == 'сейчас')
+                {
+                  ?>
+                  <span class="w3-tag w3-teal w3-round">
+                  <?php
+                }
+                
+                echo $myExperience['expDate'][$i][1];
+              
+                if($myExperience['expDate'][$i][1] == 'сейчас')
+                {
+                  ?>
+                  </span>
+                  <?php
+                }
+                ?>
+            </h6>
+              <p>
+                <?php echo $myExperience['expText'][$i]; ?>
+              </p>
+              <hr>
+            </div>
+          <?php
+          }
+        ?>
 
       <div class="w3-container w3-card w3-white">
         <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Образование</h2>
