@@ -120,8 +120,7 @@
               <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>
               <?php 
                 echo $myExperience['expDate'][$i][0] . ' - ';
-              ?>
-              <?php
+              
                 if($myExperience['expDate'][$i][1] == 'сейчас')
                 {
                   ?>
